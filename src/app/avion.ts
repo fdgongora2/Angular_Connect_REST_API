@@ -7,3 +7,8 @@ export interface Avion {
     alcance: number;
     fabricante_id: number;
 }
+
+export interface datosDevueltos  {
+    status: string,
+    data: Avion[]
+  };

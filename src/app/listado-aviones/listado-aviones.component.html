@@ -1,0 +1,12 @@
+<h1>Listado de modelos de avión</h1>
+<div *ngIf="aviones">
+  <div *ngFor="let avion of aviones">
+    <div>{{ avion.modelo }}</div>
+  </div>
+</div>
+
+<div *ngIf="!aviones">
+    <img src="../assets/loading.gif" />
+</div>
+
+

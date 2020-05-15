@@ -7,10 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { ServicioRestAvionesService } from "./servicio-rest-aviones.service";
 import { DatosProtegidosService } from "./datos-protegidos.service";
+import { ListadoAvionesComponent } from './listado-aviones/listado-aviones.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ListadoAvionesComponent
   ],
   imports: [
     BrowserModule,
