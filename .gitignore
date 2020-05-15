@@ -44,3 +44,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+#Fichero con la URL de la API REST
+/src/app/datos-protegidos.service.ts
+/src/app/datos-protegidos.service.spec.ts
