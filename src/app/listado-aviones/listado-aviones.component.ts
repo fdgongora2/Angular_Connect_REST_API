@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicioRestAvionesService } from "../servicio-rest-aviones.service";
 import { Avion, datosDevueltos } from "../avion";
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
+
 
 @Component({
   selector: 'app-listado-aviones',
@@ -10,16 +13,21 @@ import { Avion, datosDevueltos } from "../avion";
 export class ListadoAvionesComponent implements OnInit {
 
 
-  aviones : Avion[];  
- 
-  constructor(private servicioRest:ServicioRestAvionesService) { }
+  aviones: Avion[];
+  error: boolean = false;
+
+  constructor(private servicioRest: ServicioRestAvionesService) { }
 
   ngOnInit(): void {
     this.servicioRest.ObtenerAviones()
-        .subscribe((response)=> {
-          console.log(response);         
-          this.aviones = (response as datosDevueltos).data;  
+      .subscribe((response: datosDevueltos) => {
+        this.aviones = response.data;
+      },
+        (error) => {
+          this.error = true;
         })
   }
+
+  
 
 }

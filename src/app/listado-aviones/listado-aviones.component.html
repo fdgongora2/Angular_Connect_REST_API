@@ -1,12 +1,18 @@
 <h1>Listado de modelos de avión</h1>
-<div *ngIf="aviones">
-  <div *ngFor="let avion of aviones">
-    <div>{{ avion.modelo }}</div>
+<div *ngIf="!error">
+  <div *ngIf="aviones">
+    <div *ngFor="let avion of aviones">
+      <div>{{ avion.modelo }}</div>
+    </div>
+  </div>
+
+  <div *ngIf="!aviones">
+    <img src="../assets/cargandoLB.gif" />
   </div>
 </div>
 
-<div *ngIf="!aviones">
-    <img src="../assets/loading.gif" />
+<div *ngIf="error">
+  <img src="../assets/error.png" style="float:left" />
+  Ha ocurrido un erro al obtener los datos del servidor. Por favor, vuelva a
+  intentarlo más tarde.
 </div>
-
-
